@@ -1,32 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-  </head>
-  <body class="flex justify-center items-center h-screen">
-    <div class="border-2 border-blue-300 w-1/5 shadow-lg p-10 rounded-lg">
-        <h3 class="text-center my-6 text-2xln font-bold">Login Form</h3>
+{% extends 'layout.html' %}
 
 
-        <form>
+{% block content %}
+
+<main class="flex justify-center items-center h-screen">
+  <div class="border-2 border-blue-300 w-1/5 shadow-lg p-10 rounded-lg">
+    <h3 class="text-center my-6 text-2xln font-bold">Login Form</h3>
+
+    <form>
+
+      <label for="">Email Address</label>
+      <input type="email" class="w-full border rounded px-4 py-2 mb-6">
+      <label for="">Password</label>
+      <input type="password" class="w-full border rounded px-4 py-2 mb-6">
+
+      <button class="bg-blue-500 hover:bg-blue-700 text-white p2 w-full rounded">Submit</button>
+
+    </form>
+
+  </div>
 
 
-            <label for="">Email Address</label>
-            <input type="email" class="w-full border rounded px-4 py-2 mb-6">
-            <label for="">Password</label>
-            <input type="password" class="w-full border rounded px-4 py-2 mb-6">
+</body>
 
-            <button class="bg-blue-500 hover:bg-blue-700 text-white p2 w-full rounded">Submit</button>
-
-
-        </form>
-
-
-
-    </div>
-
-
-  </body>
-</html>
+{% endblock content %}
