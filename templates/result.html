@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div class="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Unused Resources</h1>
+            
+            {% if unused_resources %}
+                <p class="text-lg text-gray-600 mb-4">The following resources were found to be unused:</p>
+                <ul class="list-disc list-inside space-y-2">
+                    {% for resource in unused_resources %}
+                        <li class="text-gray-700 break-words">{{ resource }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-lg text-gray-600 text-center">No unused resources were found for the provided URL.</p>
+            {% endif %}
+            
+            <div class="mt-6 text-center">
+                <a href="{% url 'unusedchecker' %}" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    Check Another URL
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
