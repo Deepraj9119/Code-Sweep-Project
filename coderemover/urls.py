@@ -20,7 +20,6 @@ from django.views.generic import TemplateView
 from .views import UnusedChecker
 
 urlpatterns = [
-    
      path("unusedchecker/", UnusedChecker, name="unusedchecker"),
      path("result/", TemplateView.as_view(template_name='result.html'), name="result"),
 ]

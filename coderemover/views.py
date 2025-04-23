@@ -1,11 +1,24 @@
 from django.shortcuts import render
+from coderemover.unusedfinder import get_unused_resources
 
 def UnusedChecker(request):
     if request.method == 'POST':
-        # Handle the form submission
-        # You can access the form data using request.POST
-        # Perform any necessary processing here
-        return render(request, 'result.html', {'message': 'Form submitted successfully!'})
+
+        url = request.POST.get('url')
+        if url is None:
+            return render(request, 'checkunused.html', {'error': 'URL is required.'})
+        
+        unused_resources = [] 
+
+        unused_resources = get_unused_resources(url)
+
+        print(unused_resources)
+        context = {
+            'unused_resources': unused_resources,
+            'url': url,
+        }
+
+        return render(request, 'result.html', context)
     else:
         # Render the initial form
         return render(request, 'checkunused.html')
