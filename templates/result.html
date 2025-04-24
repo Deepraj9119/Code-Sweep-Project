@@ -2,23 +2,23 @@
 {% load static %}
 
 {% block content %}
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div class="max-w-4xl w-full bg-white shadow-md rounded-lg p-6">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Unused Resources</h1>
+    <div class="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+        <div class="max-w-4xl w-full bg-white shadow-lg rounded-xl p-8">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">Unused Resources</h1>
             
             {% if unused_resources %}
-                <p class="text-lg text-gray-600 mb-4">The following resources were found to be unused:</p>
-                <ul class="list-disc list-inside space-y-2">
+                <p class="text-lg text-gray-700 mb-6 text-center">The following resources were found to be unused:</p>
+                <ul class="list-disc list-inside space-y-3">
                     {% for resource in unused_resources %}
-                        <li class="text-gray-700 break-words">{{ resource }}</li>
+                        <li class="text-gray-800 bg-gray-100 p-2 rounded-md shadow-sm break-words">{{ resource }}</li>
                     {% endfor %}
                 </ul>
             {% else %}
-                <p class="text-lg text-gray-600 text-center">No unused resources were found for the provided URL.</p>
+                <p class="text-lg text-gray-700 text-center bg-gray-100 p-4 rounded-md shadow-sm">No unused resources were found for the provided URL.</p>
             {% endif %}
             
-            <div class="mt-6 text-center">
-                <a href="{% url 'unusedchecker' %}" class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+            <div class="mt-8 text-center">
+                <a href="{% url 'unusedchecker' %}" class="px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-full shadow-lg hover:from-green-500 hover:to-blue-600 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-offset-2">
                     Check Another URL
                 </a>
             </div>
