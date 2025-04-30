@@ -5,7 +5,7 @@
     <!-- Video Background -->
     <div class="relative h-screen w-full overflow-hidden">
         <video autoplay loop muted class="absolute top-0 left-0 w-full h-full object-cover">
-            <source src={% static 'videos/background.mp4' %} type="video/mp4">
+            <source src="{% static 'videos/background.mp4' %}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <!-- Overlay -->
@@ -13,8 +13,6 @@
             
         <!-- Header Content -->
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
-            <video autoplay loop controls src="{% static 'videos/background.mp4' %}"></video>
-            <img src="{% static 'images.jpg' %}" alt="">
             <h1 class="text-4xl font-bold mb-6">Search for Unused Resources</h1>
             <form method="POST" class="w-full max-w-lg space-y-4">
                 {% csrf_token %}
