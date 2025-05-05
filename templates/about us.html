@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-100 via-purple-100 to-blue-200 flex items-center justify-center py-12">
+    <div class="max-w-3xl w-full bg-white rounded-2xl shadow-2xl p-10">
+        <div class="flex flex-col items-center mb-8">
+            <img src="{% static 'images/about-icon.png' %}" alt="About Code Sweep" class="w-20 h-20 mb-4">
+            <h1 class="text-4xl font-extrabold text-blue-700 mb-2 text-center">About Code Sweep</h1>
+            <p class="text-lg text-gray-600 text-center max-w-2xl">
+                Code Sweep is your smart assistant for identifying and removing unused code from your website. Our mission is to help developers and website owners optimize their sites for speed, efficiency, and maintainability.
+            </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+            <div class="flex flex-col items-center text-center">
+                <img src="https://img.icons8.com/color/96/000000/performance-mac.png" alt="Performance" class="w-16 h-16 mb-4">
+                <h2 class="text-xl font-bold text-blue-600 mb-2">Boost Performance</h2>
+                <p class="text-gray-500">Remove unnecessary CSS, JS, images, and more to make your website load faster and perform better for every visitor.</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <img src="https://img.icons8.com/color/96/000000/idea.png" alt="Easy to Use" class="w-16 h-16 mb-4">
+                <h2 class="text-xl font-bold text-purple-600 mb-2">Easy to Use</h2>
+                <p class="text-gray-500">Just enter your website URL, and Code Sweep will analyze your site and show you what can be safely removed.</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <img src="https://img.icons8.com/color/96/000000/lock--v1.png" alt="Secure" class="w-16 h-16 mb-4">
+                <h2 class="text-xl font-bold text-green-600 mb-2">Safe & Secure</h2>
+                <p class="text-gray-500">Your data is never stored or shared. We value your privacy and security above all else.</p>
+            </div>
+            <div class="flex flex-col items-center text-center">
+                <img src="https://img.icons8.com/color/96/000000/teamwork.png" alt="Our Team" class="w-16 h-16 mb-4">
+                <h2 class="text-xl font-bold text-pink-600 mb-2">Our Team</h2>
+                <p class="text-gray-500">A passionate group of developers and designers dedicated to making the web cleaner, faster, and more accessible for everyone.</p>
+            </div>
+        </div>
+        <div class="mt-12 text-center">
+            <h3 class="text-2xl font-semibold text-blue-700 mb-4">Ready to optimize your website?</h3>
+            <a href="{% url 'unusedchecker' %}" class="inline-block px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-full shadow-lg hover:from-blue-600 hover:to-purple-700 transition">
+                Start Checking Now
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
