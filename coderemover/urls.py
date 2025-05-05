@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-from .views import UnusedChecker
+from .views import UnusedChecker, history_view
 
 urlpatterns = [
     path("unusedchecker/", UnusedChecker, name="unusedchecker"),
     path("result/", TemplateView.as_view(template_name='result.html'), name="result"),
     path("signup/", TemplateView.as_view(template_name='signup.html'), name="signup"),
     path("login/", TemplateView.as_view(template_name='login.html'), name="login"),
-
+    path('history/', history_view, name='history'),
 ]
