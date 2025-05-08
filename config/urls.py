@@ -23,12 +23,12 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("", TemplateView.as_view( template_name="index.html"), name="home"),
     path('admin/', admin.site.urls),
-    path("signup/", TemplateView.as_view( template_name="signup.html"), name="signup"),
+    
     path("contact/", TemplateView.as_view( template_name="contact.html"), name="contact"),
-    path("login/", TemplateView.as_view( template_name="login.html"), name="login"),
-    path("code/",include("coderemover.urls"), name="coderemover"),
+    
+    path("code/", include("coderemover.urls"), name="coderemover"),
+    path("auth/", include("authentication.urls"), name="auth"),  # <-- Add this line for auth urls
     # path("unusedchecker/", TemplateView.as_view( template_name="checkunused.html"), name="unusedchecker"),
-     
 ]
 
 if settings.DEBUG:
