@@ -23,4 +23,5 @@ urlpatterns = [
     path("unusedchecker/", UnusedChecker, name="unusedchecker"),
     path("result/", TemplateView.as_view(template_name='result.html'), name="result"),
     path('history/', history_view, name='history'),
+    
 ]

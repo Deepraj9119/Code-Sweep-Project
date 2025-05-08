@@ -29,6 +29,7 @@ urlpatterns = [
     path("code/", include("coderemover.urls"), name="coderemover"),
     path("auth/", include("authentication.urls"), name="auth"),  # <-- Add this line for auth urls
     # path("unusedchecker/", TemplateView.as_view( template_name="checkunused.html"), name="unusedchecker"),
+    path("profile/", TemplateView.as_view( template_name="profile.html"), name="profile"),
 ]
 
 if settings.DEBUG:
