@@ -19,17 +19,19 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from authentication.views import profile_view
 
 urlpatterns = [
     path("", TemplateView.as_view( template_name="index.html"), name="home"),
     path('admin/', admin.site.urls),
     
     path("contact/", TemplateView.as_view( template_name="contact.html"), name="contact"),
+    path("aboutus/", TemplateView.as_view( template_name="about us.html"), name="aboutus"),
     
     path("code/", include("coderemover.urls"), name="coderemover"),
     path("auth/", include("authentication.urls"), name="auth"),  # <-- Add this line for auth urls
     # path("unusedchecker/", TemplateView.as_view( template_name="checkunused.html"), name="unusedchecker"),
-    path("profile/", TemplateView.as_view( template_name="profile.html"), name="profile"),
+    path("profile/", profile_view, name="profile"),
 ]
 
 if settings.DEBUG:

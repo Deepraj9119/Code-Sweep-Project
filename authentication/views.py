@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 def login_view(request):
     if request.method == 'POST':
@@ -27,3 +29,23 @@ def signup_view(request):
         login(request, user)
         return redirect('home')  # Change 'home' to your home page url name
     return render(request, 'signup.html')
+
+@login_required
+def profile_view(request):
+    user = request.user
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+
+        # Update user fields
+        user.username = username
+        user.email = email
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
+        messages.success(request, "Profile updated successfully!")
+        return redirect("profile")
+
+    return render(request, "profile.html", {"user": user})
