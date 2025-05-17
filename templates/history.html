@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-gray-900 via-purple-800 to-blue-600 flex items-center justify-center py-10">
+    <div class="max-w-5xl w-full bg-white shadow-2xl rounded-lg p-10">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-8 text-center">Unused Code Search History</h1>
+        {% if history_items %}
+            <ul class="divide-y divide-gray-300">
+                {% for item in history_items %}
+                    <li class="py-6">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div>
+                                <p class="font-semibold text-blue-700 break-all">URL: {{ item.url }}</p>
+                                <p class="text-gray-500 text-sm mb-2">Checked on: {{ item.timestamp|date:"Y-m-d H:i" }}</p>
+                                <p class="text-gray-700 font-medium mb-1">Unused Resources:</p>
+                                {% if item.unused_resources %}
+                                    <ul class="list-disc list-inside text-gray-800 text-sm space-y-1">
+                                        {% for resource in item.unused_resources %}
+                                            <li class="break-all">{{ resource }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% else %}
+                                    <span class="text-green-600 text-sm">No unused resources found.</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="text-center text-gray-700 text-lg py-10">
+                No history found.
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}
